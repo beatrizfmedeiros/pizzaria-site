@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pizzaria 404</title>
+  <link rel="stylesheet" href="style/style.css" />
+</head>
+<body>
+  <!-- Scroll Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Barra de navegação -->
+  <header>
+    <div class="navbar">
+      <div class="logo">Pizzaria 404</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+        </ul>
+      </nav>
+      <div class="auth">
+        <button id="loginBtn">Login</button>
+        <button id="registerBtn">Cadastro</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Seção Hero com efeito Parallax e foto grande -->
+  <section class="hero">
+    <div class="overlay-container">
+  <img src="image/fundo 2.jpg" alt="Descrição da foto">
+  <div class="overlay"></div>
+</div>
+    <div class="hero-overlay">
+      <h1>Bem-vindo à Pizzaria 404</h1>
+      <p class="tagline">Sabor não encontrado? Só se for em outro lugar.</p>
+      <p>A melhor pizza da cidade</p>
+      <button onclick="scrollToSection('cardapio');">Ver Cardápio</button>
+    </div>
+    
+  </section>
+
+  <!-- Modal de Login -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" data-close="loginModal">&times;</span>
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Senha" required />
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal de Cadastro -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" data-close="registerModal">&times;</span>
+      <h2>Cadastro</h2>
+      <form id="registerForm">
+        <input type="text" placeholder="Nome" required />
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Senha" required />
+        <button type="submit">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Seção Cardápio com fundo diferenciado -->
+  <section id="cardapio" class="section">
+    <h2>Cardápio</h2>
+    <div class="pizza-gallery">
+      <div class="pizza-item">
+        <img src="image/foto pizza mussarela.jpeg" alt="Pizza Mussarela" />
+        <h3>Pizza Mussarela</h3>
+        <p>Deliciosa pizza com molho de tomate fresco e mussarela.</p>
+      </div>
+      <div class="pizza-item">
+        <img src="image/pizza calabresa.jpeg" alt="Pizza Calabresa" />
+        <h3>Pizza Calabresa</h3>
+        <p>Pizza com calabresa, cebola e orégano.</p>
+      </div>
+      <div class="pizza-item">
+        <img src="image/pizza 4 queijos.jpg" alt="Pizza Quatro Queijos" />
+        <h3>Pizza Quatro Queijos</h3>
+        <p>Uma combinação irresistível de quatro queijos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Depoimentos com Slider -->
+  <section id="depoimentos" class="section">
+    <h2>Depoimentos</h2>
+    <div class="slider-container">
+      <div class="slider">
+        <div class="slide active">
+          <blockquote>"A melhor pizza que já provei! Atendimento impecável."</blockquote>
+          <p>-  Ana Beatriz</p>
+        </div>
+        <div class="slide">
+          <blockquote>"Cada fatia é um pedaço do paraíso. Recomendo!"</blockquote>
+          <p>- Júlio César</p>
+        </div>
+        <div class="slide">
+          <blockquote>"Ambiente agradável e pizzas divinas. Vale a visita!"</blockquote>
+          <p>- Ana Guernelli</p>
+        </div>
+      </div>
+      <button class="slider-btn prev" onclick="prevSlide()">&#10094;</button>
+      <button class="slider-btn next" onclick="nextSlide()">&#10095;</button>
+    </div>
+  </section>
+
+
+
+  <!-- Seção Contato -->
+  <section id="contato" class="section">
+    <h2>Contato</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Nome" required />
+      <input type="email" placeholder="Email" required />
+      <textarea placeholder="Mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2025 Pizzaria 404. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

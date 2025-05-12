@@ -1,0 +1,309 @@
+/* Reset e estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+  line-height: 1.6;
+  background: #e6e0e0;
+  color: #000000;
+}
+
+/* Scroll Progress Bar */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: #ffffff;
+  width: 0%;
+  z-index: 999;
+}
+
+/* Barra de navegação */
+.navbar {
+  background: #91000c;
+  color: #faf6f6;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+.nav-links li {
+  margin: 0 15px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: #ffe066;
+}
+.auth button {
+  background: none;
+  border: 2px solid #ffffff;
+  color: #000000;
+  padding: 7px 13px;
+  border-radius: 7px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+.auth button:hover {
+  background: #d2c6c681;
+  color: #fcf7f7;
+}
+
+.hero {
+  margin-top: 80px; /* Espaço para a navbar fixa */
+  position: relative;
+  height: 80vh;
+  background: url('https://via.placeholder.com/1920x1080?text=Bem+Vindo+à+Pizzaria') center/cover no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* overlay preto transparente */
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2; /* acima do overlay */
+  background: #6c6c6c; /* fundo cinza */
+  padding: 30px 40px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+
+.hero-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-overlay .tagline {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  font-style: italic;
+  color: #f0f0f0;
+}
+
+.hero-overlay p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.hero-overlay button {
+  background: #e3e2dd;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.hero-overlay button:hover {
+  background: #fffefe;
+  color: #030303;
+}
+
+
+/* Modais */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+  position: relative;
+  animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Seções do site */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Estilo diferenciado para a seção Cardápio */
+#cardapio {
+  background-color: #fafafa;
+  border-top: 10px solid #91000c;
+}
+
+/* Galeria de Pizzas */
+.pizza-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.pizza-item {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+.pizza-item:hover {
+  transform: translateY(-5px);
+}
+.pizza-item img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+.pizza-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Slider (Depoimentos) */
+.slider-container {
+  position: relative;
+  max-width: 600px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.slide.active {
+  opacity: 1;
+}
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  background: #91000c;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+.slider-btn:hover {
+  background: #970000;
+}
+.prev {
+  left: 10px;
+}
+.next {
+  right: 10px;
+}
+
+/* Formulários */
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+form button {
+  background: #000000;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+form button:hover {
+  background: #c62828;
+}
+
+/* Rodapé */
+footer {
+  background: #970000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    /* Você pode implementar um menu hamburger se desejar */
+  }
+  .navbar {
+    justify-content: space-between;
+  }
+}
