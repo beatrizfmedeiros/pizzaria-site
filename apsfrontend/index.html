@@ -3,24 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title>Pizzaria 404</title>
+
   <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <!-- Scroll Progress Bar -->
+
+  <!-- Barra de progresso de rolagem no topo da tela -->
   <div id="progress-bar"></div>
 
-  <!-- Barra de navegação -->
+  <!-- Cabeçalho com barra de navegação fixa -->
   <header>
     <div class="navbar">
       <div class="logo">Pizzaria 404</div>
       <nav>
+        <!-- Links de navegação para seções internas -->
         <ul class="nav-links">
-          <li><a href="#contato">Contato</a></li>
           <li><a href="#cardapio">Cardápio</a></li>
           <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contado</a></li> <!-- OBS: corrigir "Contado" para "Contato" -->
         </ul>
       </nav>
+      <!-- Botões de autenticação (login/cadastro) -->
       <div class="auth">
         <button id="loginBtn">Login</button>
         <button id="registerBtn">Cadastro</button>
@@ -28,22 +35,25 @@
     </div>
   </header>
 
-  <!-- Seção Hero com efeito Parallax e foto grande -->
+  <!-- Seção de destaque com imagem grande de fundo e efeito Parallax -->
   <section class="hero">
+    <!-- Imagem com overlay escuro para dar contraste ao texto -->
     <div class="overlay-container">
-  <img src="image/fundo 2.jpg" alt="Descrição da foto">
-  <div class="overlay"></div>
-</div>
+      <img src="image/fundo 2.jpg" alt="Descrição da foto">
+      <div class="overlay"></div>
+    </div>
+
+    <!-- Conteúdo textual sobreposto à imagem -->
     <div class="hero-overlay">
       <h1>Bem-vindo à Pizzaria 404</h1>
       <p class="tagline">Sabor não encontrado? Só se for em outro lugar.</p>
       <p>A melhor pizza da cidade</p>
+      <!-- Botão com rolagem suave até a seção "Cardápio" -->
       <button onclick="scrollToSection('cardapio');">Ver Cardápio</button>
     </div>
-    
   </section>
 
-  <!-- Modal de Login -->
+  <!-- Modal de Login (invisível por padrão) -->
   <div id="loginModal" class="modal">
     <div class="modal-content">
       <span class="close" data-close="loginModal">&times;</span>
@@ -70,10 +80,11 @@
     </div>
   </div>
 
-  <!-- Seção Cardápio com fundo diferenciado -->
+  <!-- Seção Cardápio com fundo claro e destaques de pizzas -->
   <section id="cardapio" class="section">
     <h2>Cardápio</h2>
     <div class="pizza-gallery">
+      <!-- Cada pizza representada como um "card" -->
       <div class="pizza-item">
         <img src="image/foto pizza mussarela.jpeg" alt="Pizza Mussarela" />
         <h3>Pizza Mussarela</h3>
@@ -92,15 +103,17 @@
     </div>
   </section>
 
-  <!-- Seção Depoimentos com Slider -->
+  <!-- Seção com depoimentos de clientes em formato de slider/carrossel -->
   <section id="depoimentos" class="section">
     <h2>Depoimentos</h2>
     <div class="slider-container">
       <div class="slider">
+        <!-- Slide ativo (visível inicialmente) -->
         <div class="slide active">
           <blockquote>"A melhor pizza que já provei! Atendimento impecável."</blockquote>
-          <p>-  Ana Beatriz</p>
+          <p>- Ana Beatriz</p>
         </div>
+        <!-- Demais slides ocultos até serem ativados -->
         <div class="slide">
           <blockquote>"Cada fatia é um pedaço do paraíso. Recomendo!"</blockquote>
           <p>- Júlio César</p>
@@ -110,14 +123,22 @@
           <p>- Ana Guernelli</p>
         </div>
       </div>
+      <!-- Botões para navegação entre slides -->
       <button class="slider-btn prev" onclick="prevSlide()">&#10094;</button>
       <button class="slider-btn next" onclick="nextSlide()">&#10095;</button>
     </div>
   </section>
 
+  <!-- Seção "Sobre", com descrição da pizzaria -->
+  <section id="sobre" class="section">
+    <h2>Sobre a Pizzaria</h2>
+    <p>
+      A Pizzaria 404 — criada por devs que trocaram linhas de código por fatias crocantes. Aqui, cada receita é pensada com a mesma dedicação que damos a um bom projeto: ingredientes de qualidade, massas artesanais e combinações que funcionam perfeitamente, sem necessidade de debug.
+      O nome é uma brincadeira com o famoso erro 404, mas aqui o único "sabor não encontrado" é aquele que você ainda não experimentou. Pizzaria 404: onde o código é paixão e a pizza, solução.
+    </p>
+  </section>
 
-
-  <!-- Seção Contato -->
+  <!-- Seção de Contato com formulário e ícones de redes sociais -->
   <section id="contato" class="section">
     <h2>Contato</h2>
     <form id="contactForm">
@@ -126,9 +147,24 @@
       <textarea placeholder="Mensagem" required></textarea>
       <button type="submit">Enviar</button>
     </form>
+
+    <!-- Ícones de redes sociais e meios de contato -->
+    <div class="social-contact">
+      <div class="icons">
+        <a href="https://wa.me/5599999999999" target="_blank" title="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="mailto:contato@pizzaria404.com" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://instagram.com/seu_instagram" target="_blank" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
   </section>
 
-  <!-- Rodapé -->
+  <!-- Rodapé da página com direitos autorais -->
   <footer>
     <p>&copy; 2025 Pizzaria 404. Todos os direitos reservados.</p>
   </footer>
