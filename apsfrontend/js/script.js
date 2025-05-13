@@ -1,61 +1,93 @@
-// Barra de progresso do scroll
+// Esta função é executada sempre que o usuário rola a página
 window.onscroll = function () {
+  // Calcula a quantidade rolada da página (do topo até a posição atual)
   let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+
+  // Calcula a altura total que pode ser rolada (altura total - altura da janela)
   let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+  // Calcula a porcentagem rolada da página
   let scrolled = (winScroll / height) * 100;
+
+  // Altera a largura da barra de progresso para refletir o scroll atual
   document.getElementById("progress-bar").style.width = scrolled + "%";
 
-  // Mostrar seções ao rolar
+  // Anima a aparição das seções conforme entram na tela
   document.querySelectorAll(".section").forEach(section => {
     const position = section.getBoundingClientRect();
     if (position.top < window.innerHeight - 100) {
-      section.classList.add("visible");
+      section.classList.add("visible"); // Adiciona classe visível para aplicar animações CSS
     }
   });
 };
 
-// Abrir e fechar modais
+// Ao clicar no botão "Login", exibe o modal correspondente
 document.getElementById("loginBtn").onclick = () => {
   document.getElementById("loginModal").style.display = "flex";
 };
+
+// Ao clicar no botão "Cadastro", exibe o modal correspondente
 document.getElementById("registerBtn").onclick = () => {
   document.getElementById("registerModal").style.display = "flex";
 };
+
+// Adiciona funcionalidade aos botões de fechar (X)
 document.querySelectorAll(".close").forEach(btn => {
   btn.onclick = () => {
-    const modalId = btn.getAttribute("data-close");
+    const modalId = btn.getAttribute("data-close"); // Pega o ID do modal a ser fechado
     document.getElementById(modalId).style.display = "none";
   };
 });
+
+// Fecha o modal se o usuário clicar fora da área de conteúdo
 window.onclick = function (event) {
   if (event.target.classList.contains("modal")) {
     event.target.style.display = "none";
   }
 };
 
-// Navegação suave para as seções
+// Rola a página suavemente até a seção com o ID informado
 function scrollToSection(id) {
   const section = document.getElementById(id);
   if (section) {
     section.scrollIntoView({ behavior: 'smooth' });
   }
 }
-
-// Slider depoimentos
+// Índice do slide atual
 let currentSlide = 0;
+
+// Seleciona todos os slides dentro do slider
+const slides = document.querySelectorAll(".slide");
+
+// Função para exibir um slide específico com base no índice
 function showSlide(index) {
-  const slides = document.querySelectorAll('.slide');
-  slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === index);
+  // Se ultrapassar o último slide, volta ao primeiro
+  if (index >= slides.length) currentSlide = 0;
+  // Se for menor que o primeiro, vai para o último
+  else if (index < 0) currentSlide = slides.length - 1;
+  else currentSlide = index;
+
+  // Move o slide para mostrar o slide atual
+  const slider = document.querySelector(".slider");
+  slider.style.transform = "translateX(-" + currentSlide * 100 + "%)";
+
+  // Atualiza o destaque visual do slide atual
+  slides.forEach((slide, idx) => {
+    slide.classList.remove("active"); // Remove a classe de todos os slides
+    if (idx === currentSlide) slide.classList.add("active"); // Adiciona no slide atual
   });
 }
-function nextSlide() {
-  const slides = document.querySelectorAll('.slide');
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-}
-function prevSlide() {
-  const slides = document.querySelectorAll('.slide');
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  showSlide(currentSlide);
-}
+
+// Funções globais para os botões de navegação "Anterior" e "Próximo"
+window.nextSlide = function () {
+  showSlide(currentSlide + 1);
+};
+
+window.prevSlide = function () {
+  showSlide(currentSlide - 1);
+};
+
+// Avança o slider automaticamente a cada 5 segundos
+setInterval(function () {
+  showSlide(currentSlide + 1);
+}, 5000);
