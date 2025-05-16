@@ -212,6 +212,10 @@ body {
   transform: translateY(20px);
   transition: opacity 0.6s, transform 0.6s;
 }
+.contato{
+  max-width: 600px;
+  margin: 0 auto;
+}
 
 /* Quando a seção estiver visível (scroll) */
 .section.visible {

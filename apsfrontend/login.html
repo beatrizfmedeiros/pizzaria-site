@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon" />
+    <title>Pizzaria 404</title>
+
+    <link rel="stylesheet" href="style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style>
+      .form-container {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .form-control {
+        width: 365px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Barra de progresso de rolagem no topo da tela -->
+    <div id="progress-bar"></div>
+
+    <!-- Cabeçalho com barra de navegação fixa -->
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <img src="/apsfrontend/image/icone.png" alt="" />Pizzaria 404
+        </div>
+        <!-- Botões de autenticação (login/cadastro) -->
+        <div class="btn log">
+          <a href="login.html" style="color: inherit; text-decoration: none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="currentColor"
+              class="bi bi-person-circle"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <section>
+        <div class="container mt-4">
+          <div class="card p-3 shadow-sm form-container">
+            <h4 class="text-center mb-3">Login</h4>
+            <form id="loginForm">
+              <div class="mb-2">
+                <label for="email" class="form-label">E-mail *</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Digite seu e-mail"
+                  required
+                />                
+              </div>
+
+              <div class="mb-3">
+                <label for="senha" class="form-label">Senha *</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="senha"
+                  placeholder="Digite sua senha"
+                  required
+                />               
+              </div>
+
+              <div class="d-grid mb-2">
+                <button type="submit" class="btn btn-primary">Acessar</button>
+              </div>
+
+              <div class="text-center">
+                <p class="mb-0">
+                  Não tem uma conta? <a href="cadastro.html">Cadastre-se</a>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="js/script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
