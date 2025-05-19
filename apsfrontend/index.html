@@ -1,69 +1,102 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon" />
-    <title>Pizzaria 404</title>
 
-    <link rel="stylesheet" href="style/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <!-- Barra de progresso de rolagem no topo da tela -->
-    <div id="progress-bar"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
-    <!-- Cabeçalho com barra de navegação fixa -->
-    <header>
-      <div class="navbar">
-        <div class="logo"><img src="/apsfrontend/image/icone.png" alt="">Pizzaria 404</div>
-        <nav>
-          <!-- Links de navegação para seções internas -->
-          <ul class="nav-links">
-            <li><a href="cardapio.html">Cardápio</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="#depoimentos">Depoimentos</a></li>
-            <li><a href="#contato">Contato</a></li>
-            <!-- OBS: corrigir "Contado" para "Contato" -->
-          </ul>
-        </nav>
-        <!-- Botões de autenticação (login/cadastro) -->
-        <div class="btn log">
-          <a href="login.html" style="color: inherit; text-decoration: none">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="25"
-              fill="currentColor"
-              class="bi bi-person-circle"
-              viewBox="0 0 16 16"
-            >
-              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-              <path
-                fill-rule="evenodd"
-                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
-              />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </header>
+  <!-- jquery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <title>Pizzaria 404</title>
+</head>
+
+<body>
+  <!-- Barra de progresso de rolagem no topo da tela -->
+  <div id="progress-bar"></div>
+
+  <!-- Cabeçalho com barra de navegação fixa -->
+  <header>
+    <nav id="navbar">
+      <i id="nav_logo"><img src="/apsfrontend/image/icone.png" alt="Imagem da Logo Pizzaria 404">Pizzaria
+        404</i>
+      <!-- Links de navegação para seções da página -->
+      <ul id="nav_list" class="nav-list">
+        <li class="nav-item active">
+          <a href="#inicio">Início</a>
+        </li>
+        <li class="nav-item">
+          <a href="#sobre">Sobre Nós</a>
+        </li>
+        <li class="nav-item">
+          <a href="#cardapio">Cardápio</a>
+        </li>
+        <li class="nav-item">
+          <a href="#depoimentos">Avaliações</a>
+        </li>
+        <li class="nav-item">
+          <a href="#contato">Contato</a>
+        </li>
+      </ul>
+
+      <button class="btn-default">
+        Peça aqui
+      </button>
+
+      <!-- Responsividade para mobile -->
+      <button id="mobile_btn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
+    <!-- Botões de autenticação (login/cadastro) -->
+    <!-- <div class="btn log">
+      <a href="login.html" style="color: inherit; text-decoration: none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle"
+          viewBox="0 0 16 16">
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+          <path fill-rule="evenodd"
+            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+        </svg>
+      </a>
+    </div> -->
+
+    <div id="mobile_menu">
+      <ul id="mobile_nav_list" class="mobile-nav-list">
+        <li class="nav-item">
+          <a href="#inicio">Início</a>
+        </li>
+        <li class="nav-item">
+          <a href="#sobre">Sobre Nós</a>
+        </li>
+        <li class="nav-item">
+          <a href="#cardapio">Cardápio</a>
+        </li>
+        <li class="nav-item">
+          <a href="#depoimentos">Avaliações</a>
+        </li>
+        <li class="nav-item">
+          <a href="#contato">Contato</a>
+        </li>
+      </ul>
+      <button class="btn-default">
+        Peça aqui
+      </button>
+    </div>
+  </header>
 
   <!-- Seção de destaque com imagem grande de fundo e efeito Parallax -->
   <section class="hero">
     <!-- Imagem com overlay escuro para dar contraste ao texto -->
     <div class="overlay-container">
-      <img src="image/fundo 2.jpg" alt="Descrição da foto">
-      <div class="overlay"></div>
+      <img class="background-principal" src="image/fundo 2.jpg" alt="Imagem de uma pizza">
+      <!-- <div class="overlay"></div> -->
     </div>
 
     <!-- Conteúdo textual sobreposto à imagem -->
@@ -182,11 +215,10 @@
   <footer>
     <p>&copy; 2025 Pizzaria 404. Todos os direitos reservados.</p>
   </footer>
-<script src="js/script.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-      crossorigin="anonymous"
-    ></script>
+  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
