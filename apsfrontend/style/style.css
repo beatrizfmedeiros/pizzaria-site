@@ -237,10 +237,12 @@ header {
 
 #sobre {
   min-height: 70vh;
+  margin-top: 8rem;
 }
 
 #contato {
   min-height: 70vh;
+  margin-top: 8rem;
 }
 
 #depoimentos {
