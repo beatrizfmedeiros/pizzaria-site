@@ -52,6 +52,15 @@ header {
   background: #f5c502;
 }
 
+.btn-default a:hover {
+  color: #000;
+}
+
+.btn-default a {
+  text-decoration: none;
+  color: #000;
+}
+
 /*  BARRA DE PROGRESSO DO SCROLL */
 #progress-bar {
   position: fixed;
