@@ -1,9 +1,10 @@
-/* PALETA DE CORES
+/* PALETA DE CORES - para variáveis de cor futuramente
 Vermelho: #C0392B
 vermelho escuro: #5c0b03;
 Vermelho + claro: #e74c3c
 Amarelo: #F4D03F
 Amarelo + escuro: #f5c502
+amarelo: e9a209
 Verde: #27AE60
 Amarronzado: #8D6E63
 off-white: #FDF6EC
@@ -49,6 +50,15 @@ header {
 
 .btn-default:hover {
   background: #f5c502;
+}
+
+.btn-default a:hover {
+  color: #000;
+}
+
+.btn-default a {
+  text-decoration: none;
+  color: #000;
 }
 
 /*  BARRA DE PROGRESSO DO SCROLL */
@@ -121,57 +131,6 @@ header {
   display: none;
 }
 
-/* #mobile_hero{
-  display: none;
-} */
-
-/* 
-RESPONSIVIDADE MOBILE: 
-delimitando elementos q ficarão visíveis ou não para a tela mobile e estilização dos mesmos
-*/
-
-@media screen and (max-width: 1170px) {
-  #nav_list, 
-  #navbar .btn-default 
-  #hero{
-    display: none;
-  }
-
-
-  #mobile_btn {
-    display: block;
-    border: none;
-    background-color: transparent;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-
-  #mobile_menu.active {
-    display: block;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #mobile_nav_list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin: 12px 0px;
-    list-style: none;
-    text-decoration: none;
-  }
-
-  #mobile_nav_list .nav-item {
-    list-style: none;
-    text-align: center;
-  }
-  /* #overlay-container .background-principal{
-    
-  } */
-
-
-}
-
 /* LOGIN */
 
 /* Botões de autenticação (Login/Cadastro) */
@@ -197,12 +156,14 @@ delimitando elementos q ficarão visíveis ou não para a tela mobile e estiliza
 
 #hero {
   position: relative;
+  width: 100%;
   min-height: calc(100vh - 104px);
   background: url('https://via.placeholder.com/1920x1080?text=Bem+Vindo+à+Pizzaria') center/cover no-repeat;
   background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .background-principal {
@@ -211,6 +172,14 @@ delimitando elementos q ficarão visíveis ou não para a tela mobile e estiliza
 
 .overlay-container{
   display: flex;
+  width: 65%;
+  align-items: start;
+  justify-content: start;
+}
+
+.overlay-container img {
+  height: 100%;
+  width: fit-content;
 }
 /* Overlay escuro sobre o fundo para melhor leitura */
 #hero::before {
@@ -225,23 +194,26 @@ delimitando elementos q ficarão visíveis ou não para a tela mobile e estiliza
 
 /* Conteúdo do hero acima do overlay */
 .hero-overlay {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
   position: relative;
   z-index: 2;
   padding: 30px 40px;
   border-radius: 10px;
   text-align: center;
-  color: #181c21;
 }
 
 /* Título principal do hero */
 .hero-overlay h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 10px;
+  color: #1d1d1d;
 }
 
 /* Subtítulo ou descrição */
 .hero-overlay .tagline {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   margin-bottom: 10px;
   font-style: italic;
   color: #181c21;
@@ -249,7 +221,7 @@ delimitando elementos q ficarão visíveis ou não para a tela mobile e estiliza
 
 /* Parágrafo descritivo */
 .hero-overlay p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 20px;
 }
 
@@ -257,7 +229,7 @@ delimitando elementos q ficarão visíveis ou não para a tela mobile e estiliza
 .hero-overlay button {
   background: #F4D03F;
   border: none;
-  padding: 10px 20px;
+  padding: 8px 14px;
   font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
@@ -270,6 +242,21 @@ delimitando elementos q ficarão visíveis ou não para a tela mobile e estiliza
 .hero-overlay button:hover {
   background: #f5c502;
   color: #030303;
+}
+
+#sobre {
+  min-height: 70vh;
+  margin-top: 8rem;
+}
+
+#contato {
+  min-height: 70vh;
+  margin-top: 8rem;
+}
+
+#depoimentos {
+  min-height: 50vh;
+  background: #FDF6EC;
 }
 
 /*  MODAIS  */
@@ -330,6 +317,7 @@ delimitando elementos q ficarão visíveis ou não para a tela mobile e estiliza
 .contato{
   max-width: 600px;
   margin: 0 auto;
+  padding: 20px;
 }
 
 /* Quando a seção estiver visível (scroll) */
@@ -340,6 +328,7 @@ delimitando elementos q ficarão visíveis ou não para a tela mobile e estiliza
 
 /* Seção de cardápio com estilo diferenciado */
 #cardapio {
+  min-height: 85vh;
   background-color: #fafafa;
   border-top: 10px solid #970000;
 }
@@ -515,4 +504,79 @@ footer {
   .navbar {
     justify-content: space-between;
   }
+}
+
+@media screen and (max-width: 1170px) {
+  #nav_list, 
+  #navbar .btn-default,
+  .overlay-container img {
+    display: none;
+  }
+
+  #mobile_btn {
+    display: block;
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+  }
+
+  #mobile_menu.active {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #mobile_nav_list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 12px 0px;
+    list-style: none;
+    text-decoration: none;
+  }
+
+  #mobile_nav_list .nav-item {
+    list-style: none;
+    text-align: center;
+  }
+  
+  #hero {
+    min-height: 80vh;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .hero-overlay {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .hero-overlay h1,
+  .hero-overlay p {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    word-break: normal;
+    white-space: normal;
+  }
+  .hero-overlay h1 {
+    font-size: 3.2rem;
+    margin-bottom: 5rem;
+    font-weight: 600;
+  }
+  .hero-overlay .tagline {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+  }
+  
 }
