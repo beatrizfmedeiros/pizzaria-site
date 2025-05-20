@@ -101,3 +101,10 @@ window.prevSlide = function () {
 setInterval(function () {
   showSlide(currentSlide + 1);
 }, 5000);
+
+
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault(); // impede o envio real do formulário
+  alert("Mensagem enviada com sucesso!");
+  this.reset(); // limpa o formulário (opcional)
+});

@@ -29,6 +29,7 @@ body {
 header {
   width: 100%;
   padding: 28px 8%;
+  background-color: #222222;
 }
 
 .btn-default {
@@ -70,10 +71,20 @@ header {
   justify-content: space-between;
 }
 
+#navbar a {
+  text-decoration: none;
+}
+
 /* Logo da navbar */
 #nav_logo {
   font-size: 24px;
   font-weight: bolder;
+  color: #FDF6EC;
+}
+
+#nav_logo img {
+  width: 40px;
+  margin-right: 10px;
 }
 
 /* Lista de links de navegação */
@@ -85,7 +96,7 @@ header {
 
 .nav-item a {
   text-decoration: none;
-  color: #111010;
+  color: #FDF6EC;
   font-weight: 600;
   transition: color 0.3s;
 }
@@ -96,7 +107,7 @@ header {
 
 /* Surge uma borda inferior no item da navbar */
 .nav-item.active a {
-  color: #383838;
+  color: #FDF6EC;
   border-bottom: 3px solid #ffe100;
 }
 
@@ -110,6 +121,10 @@ header {
   display: none;
 }
 
+/* #mobile_hero{
+  display: none;
+} */
+
 /* 
 RESPONSIVIDADE MOBILE: 
 delimitando elementos q ficarão visíveis ou não para a tela mobile e estilização dos mesmos
@@ -117,9 +132,11 @@ delimitando elementos q ficarão visíveis ou não para a tela mobile e estiliza
 
 @media screen and (max-width: 1170px) {
   #nav_list, 
-  #navbar .btn-default {
+  #navbar .btn-default 
+  #hero{
     display: none;
   }
+
 
   #mobile_btn {
     display: block;
@@ -148,6 +165,11 @@ delimitando elementos q ficarão visíveis ou não para a tela mobile e estiliza
     list-style: none;
     text-align: center;
   }
+  /* #overlay-container .background-principal{
+    
+  } */
+
+
 }
 
 /* LOGIN */
@@ -173,9 +195,9 @@ delimitando elementos q ficarão visíveis ou não para a tela mobile e estiliza
 
 /*  SEÇÃO HERO (DESTAQUE INICIAL) */
 
-.hero {
+#hero {
   position: relative;
-  height: 80vh;
+  min-height: calc(100vh - 104px);
   background: url('https://via.placeholder.com/1920x1080?text=Bem+Vindo+à+Pizzaria') center/cover no-repeat;
   background-attachment: fixed;
   display: flex;
@@ -187,8 +209,11 @@ delimitando elementos q ficarão visíveis ou não para a tela mobile e estiliza
   border-radius: 0px 220px 220px 0px;
 }
 
+.overlay-container{
+  display: flex;
+}
 /* Overlay escuro sobre o fundo para melhor leitura */
-.hero::before {
+#hero::before {
   content: "";
   position: absolute;
   top: 0; left: 0;
@@ -230,18 +255,20 @@ delimitando elementos q ficarão visíveis ou não para a tela mobile e estiliza
 
 /* Botão do hero */
 .hero-overlay button {
-  background: #e3e2dd;
+  background: #F4D03F;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s, color 0.2s;
+  font-weight: 600;
 }
 
 /* Hover do botão */
 .hero-overlay button:hover {
-  background: #fffefe;
+  background: #f5c502;
   color: #030303;
 }
 
@@ -348,6 +375,7 @@ delimitando elementos q ficarão visíveis ou não para a tela mobile e estiliza
   width: 100%;
   border-radius: 10px;
   transition: transform 0.3s;
+  margin-bottom: 20px;
 }
 
 /* Zoom da imagem ao passar o mouse */
