@@ -1,3 +1,16 @@
+/* PALETA DE CORES
+Vermelho: #C0392B
+vermelho escuro: #5c0b03;
+Vermelho + claro: #e74c3c
+Amarelo: #F4D03F
+Amarelo + escuro: #f5c502
+Verde: #27AE60
+Amarronzado: #8D6E63
+off-white: #FDF6EC
+Cinza: #2C3E50
+Branco: #FDF6EC
+*/
+
 /* Remove margens e preenchimentos padrão e define box-sizing para facilitar o controle de layout */
 * {
   margin: 0;
@@ -13,60 +26,153 @@ body {
   color: #000000;
 }
 
+header {
+  width: 100%;
+  padding: 28px 8%;
+  background-color: #222222;
+}
+
+.btn-default {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 10px;
+  color: #000000;
+  font-weight: 600;
+  background-color: #F4D03F;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color .2s ease;
+}
+
+.btn-default:hover {
+  background: #f5c502;
+}
+
 /*  BARRA DE PROGRESSO DO SCROLL */
 #progress-bar {
   position: fixed;
   top: 0;
   left: 0;
   height: 5px;
-  background: #ffffff;
+  background: #5c0b03;
   width: 0%;
   z-index: 999;
 }
 
 /*  BARRA DE NAVEGAÇÃO */
-.navbar {
-  background: #91000c;
-  color: #faf6f6;
-  padding: 20px;
-  position: fixed;
-  top: 0;
+#navbar {
+  /* background */
   width: 100%;
-  z-index: 100;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+}
+
+#navbar a {
+  text-decoration: none;
 }
 
 /* Logo da navbar */
-.navbar .logo {
-  font-size: 1.5rem;
+#nav_logo {
+  font-size: 24px;
   font-weight: bolder;
+  color: #FDF6EC;
+}
+
+#nav_logo img {
+  width: 40px;
+  margin-right: 10px;
 }
 
 /* Lista de links de navegação */
-.nav-links {
-  list-style: none;
+#nav_list {
   display: flex;
+  list-style: none;
+  gap: 48px;
 }
 
-/* Espaçamento entre os itens do menu */
-.nav-links li {
-  margin: 0 15px;
-}
-
-/* Estilização dos links da navbar */
-.nav-links a {
+.nav-item a {
   text-decoration: none;
-  color: #fff;
-  font-size: 1rem;
+  color: #FDF6EC;
+  font-weight: 600;
   transition: color 0.3s;
 }
 
-/* Hover nos links da navbar */
-.nav-links a:hover {
-  color: #ffe066;
+.nav-item:hover a{
+  color: #F4D03F;
 }
+
+/* Surge uma borda inferior no item da navbar */
+.nav-item.active a {
+  color: #FDF6EC;
+  border-bottom: 3px solid #ffe100;
+}
+
+
+/* ocultando elementos do mobile para telas maiores */
+#mobile_menu {
+  display: none;
+}
+
+#mobile_btn {
+  display: none;
+}
+
+/* #mobile_hero{
+  display: none;
+} */
+
+/* 
+RESPONSIVIDADE MOBILE: 
+delimitando elementos q ficarão visíveis ou não para a tela mobile e estilização dos mesmos
+*/
+
+@media screen and (max-width: 1170px) {
+  #nav_list, 
+  #navbar .btn-default 
+  #hero{
+    display: none;
+  }
+
+
+  #mobile_btn {
+    display: block;
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  #mobile_menu.active {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #mobile_nav_list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 12px 0px;
+    list-style: none;
+    text-decoration: none;
+  }
+
+  #mobile_nav_list .nav-item {
+    list-style: none;
+    text-align: center;
+  }
+  /* #overlay-container .background-principal{
+    
+  } */
+
+
+}
+
+/* LOGIN */
 
 /* Botões de autenticação (Login/Cadastro) */
 .auth button {
@@ -86,11 +192,12 @@ body {
   color: #fcf7f7;
 }
 
+
 /*  SEÇÃO HERO (DESTAQUE INICIAL) */
-.hero {
-  margin-top: 80px; /* Compensação da navbar fixa */
+
+#hero {
   position: relative;
-  height: 80vh;
+  min-height: calc(100vh - 104px);
   background: url('https://via.placeholder.com/1920x1080?text=Bem+Vindo+à+Pizzaria') center/cover no-repeat;
   background-attachment: fixed;
   display: flex;
@@ -98,14 +205,21 @@ body {
   justify-content: center;
 }
 
+.background-principal {
+  border-radius: 0px 220px 220px 0px;
+}
+
+.overlay-container{
+  display: flex;
+}
 /* Overlay escuro sobre o fundo para melhor leitura */
-.hero::before {
+#hero::before {
   content: "";
   position: absolute;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  /* background: rgba(0, 0, 0, 0.5); */
   z-index: 1;
 }
 
@@ -113,11 +227,10 @@ body {
 .hero-overlay {
   position: relative;
   z-index: 2;
-  background: #6c6c6c;
   padding: 30px 40px;
   border-radius: 10px;
   text-align: center;
-  color: white;
+  color: #181c21;
 }
 
 /* Título principal do hero */
@@ -131,7 +244,7 @@ body {
   font-size: 1.25rem;
   margin-bottom: 10px;
   font-style: italic;
-  color: #f0f0f0;
+  color: #181c21;
 }
 
 /* Parágrafo descritivo */
@@ -142,18 +255,20 @@ body {
 
 /* Botão do hero */
 .hero-overlay button {
-  background: #e3e2dd;
+  background: #F4D03F;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s, color 0.2s;
+  font-weight: 600;
 }
 
 /* Hover do botão */
 .hero-overlay button:hover {
-  background: #fffefe;
+  background: #f5c502;
   color: #030303;
 }
 
@@ -260,6 +375,7 @@ body {
   width: 100%;
   border-radius: 10px;
   transition: transform 0.3s;
+  margin-bottom: 20px;
 }
 
 /* Zoom da imagem ao passar o mouse */

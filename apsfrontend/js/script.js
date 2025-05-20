@@ -1,3 +1,13 @@
+// Barra de navegação com responsividade para mobile com Jquery
+$(document).ready(function() {
+  $('#mobile_btn').on('click', function(){
+    // Alterna a classe active no mobile_menu quando clicado, expandido seu conteúdo
+    $('#mobile_menu').toggleClass('active');
+    // Quando clicado, procura a tag <i> onde está o ícone menu 'hamburguer' dentro do botão mobile_btn e altera para um ícone de X.
+    $('#mobile_btn').find('i').toggleClass('fa-x');
+  });
+});
+
 // Esta função é executada sempre que o usuário rola a página
 window.onscroll = function () {
   // Calcula a quantidade rolada da página (do topo até a posição atual)
@@ -91,3 +101,10 @@ window.prevSlide = function () {
 setInterval(function () {
   showSlide(currentSlide + 1);
 }, 5000);
+
+
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault(); // impede o envio real do formulário
+  alert("Mensagem enviada com sucesso!");
+  this.reset(); // limpa o formulário (opcional)
+});
